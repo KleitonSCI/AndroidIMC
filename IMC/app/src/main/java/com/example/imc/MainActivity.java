@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
                 //i.putExtra("msg","oi");
                 float h = Float.parseFloat(a.getText().toString());
                 float w = Float.parseFloat(p.getText().toString());
-                i.putExtra("altura",a.getText().toString());
-                i.putExtra("peso",p.getText().toString());
+                i.putExtra("altura",h);
+                i.putExtra("peso",w);
 
                 startActivity(i);
             }

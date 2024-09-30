@@ -14,6 +14,7 @@ import java.text.DecimalFormat;
 
 public class atividadeB extends AppCompatActivity {
     float weight,height;
+    public Float total;
 
 
     @Override
@@ -27,11 +28,14 @@ public class atividadeB extends AppCompatActivity {
 
         weight = getIntent().getExtras().getFloat("peso");
         height = getIntent().getExtras().getFloat("altura");
-        Float total = weight/(height*height);
+        total = weight/(height*height);
+        System.out.println(weight);
+        System.out.println(height);
+        System.out.println(total);
 
         DecimalFormat df = new DecimalFormat(("##,##"));
-        altura.setText(df.format(height)+" m");
-        peso.setText(df.format(weight)+" Kg");
+        altura.setText(String.format(String.valueOf(height),"%.2f")+" m");
+        peso.setText(String.format(String.valueOf(weight),"%.2f")+" Kg");
         imc.setText(df.format(total));
         setPerfil(total);
 
@@ -42,7 +46,7 @@ public class atividadeB extends AppCompatActivity {
     }
     public void setPerfil(Float imc){
         ImageView image = findViewById(R.id.imageView);
-        TextView result = findViewById(R.id.lblIMC);
+        TextView result = findViewById(R.id.lblResultado);
         if (imc<=18.5){
             result.setText("Abaixo do Peso");
             image.setImageResource(R.drawable.abaixopeso);
